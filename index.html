@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="En The Break compartimos consejos, experiencias reales y contenido fresco para ayudarte a vivir mejor tu vida en la universidad.">
+    <title>The Break</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="The Break logo" class="logo-img">
+            <span class="logo-text">The Break</span>
+        </div>
+        <div class="menu">
+            <a href="#" class="active" onclick="showSection('home', event)">Inicio</a>
+            <a href="#" onclick="showSection('consejos', event)">Consejos</a>
+            <a href="#" onclick="showSection('confesiones', event)">Confesiones</a>
+            <a href="#" class="btn-primary" onclick="showSection('enviar', event)">Enviar Historia</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="tag">Tendencia Semanal</span>
+            <h1>"Cómo reprobé y sobreviví para contarlo"</h1>
+            <p>Una historia real sobre resiliencia, café barato y segundas oportunidades.</p>
+            <p class="site-desc">En The Break compartimos consejos, experiencias reales y contenido fresco para ayudarte a vivir mejor tu vida en la universidad.</p>
+            <button class="btn-play-hero" onclick="playAudio('intro', 'Cómo reprobé y sobreviví', 'Ana M.')">
+                <i class="fa-solid fa-play"></i> Escuchar Historia
+            </button>
+        </div>
+        <div class="hero-visual">
+            <div class="sound-wave">
+                <div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home section (visible by default) -->
+        <section id="home" class="section active">
+            <h2><i class="fa-solid fa-headphones"></i> Últimas Vivencias</h2>
+            <div class="grid-layout">
+                <article class="audio-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&auto=format&fit=crop&q=80" alt="Estudiante estudiando">
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Estudio</span>
+                        <h3>Hackear tu horario de sueño</h3>
+                        <p>Consejos para dormir 4 horas y rendir como si fueran 8 (No lo hagas siempre).</p>
+                        <div class="card-meta">
+                            <span><i class="fa-regular fa-clock"></i> 5 min</span>
+                            <button class="btn-icon" onclick="playAudio('tip1', 'Hackear el sueño', 'Dr. Dormilón')">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="audio-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/1200/800?random=2" alt="Comida cerca del campus">
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Vida Social</span>
+                        <h3>Comida barata cerca del campus</h3>
+                        <p>La guía definitiva de los mejores tacos por menos de $2.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-regular fa-clock"></i> 12 min</span>
+                            <button class="btn-icon" onclick="playAudio('tip2', 'Comida Barata', 'El Gastrónomo')">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="audio-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&auto=format&fit=crop&q=80" alt="Pareja estudiando juntas">
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Relaciones</span>
+                        <h3>Amor en tiempos de finales</h3>
+                        <p>¿Es posible tener pareja y aprobar Cálculo II al mismo tiempo?</p>
+                        <div class="card-meta">
+                            <span><i class="fa-regular fa-clock"></i> 20 min</span>
+                            <button class="btn-icon" onclick="playAudio('tip3', 'Amor y Finales', 'Cupido Estresado')">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Consejos section -->
+        <section id="consejos" class="section">
+            <h2><i class="fa-solid fa-lightbulb"></i> Consejos para la vida universitaria</h2>
+            <div class="cards-list">
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=21" alt="Agenda y calendario">
+                        <button class="tip-play" onclick="playAudio('con1', 'Organiza tu semana', 'The Break')" aria-label="Escuchar consejo: Organiza tu semana"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Organiza tu semana</h3>
+                        <p>Planifica las tareas por prioridad y reserva bloques de estudio de 50 minutos con descansos. Usa un calendario visual para no sobrecargarte.</p>
+                    </div>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=22" alt="Desayuno saludable">
+                        <button class="tip-play" onclick="playAudio('con2', 'Cuida tu salud', 'The Break')" aria-label="Escuchar consejo: Cuida tu salud"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Cuida tu salud</h3>
+                        <p>Incluye caminatas cortas, come alimentos simples y mantén una rutina de sueño constante. Un desayuno nutritivo mejora tu energía.</p>
+                    </div>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=23" alt="Grupo de estudio socializando">
+                        <button class="tip-play" onclick="playAudio('con3', 'Haz contactos', 'The Break')" aria-label="Escuchar consejo: Haz contactos"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Haz contactos</h3>
+                        <p>Participa en grupos y eventos: las redes que construyas valen más que un solo examen. Intercambia apuntes y organiza sesiones de estudio.</p>
+                    </div>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=24" alt="Técnicas de estudio">
+                        <button class="tip-play" onclick="playAudio('con4', 'Técnicas de estudio', 'The Break')" aria-label="Escuchar consejo: Técnicas de estudio"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Técnicas de estudio</h3>
+                        <p>Prueba el método Pomodoro, mapas mentales y explicar lo aprendido a otra persona para consolidar memoria.</p>
+                    </div>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=25" alt="Gestión del dinero universitario">
+                        <button class="tip-play" onclick="playAudio('con5', 'Gestión del dinero', 'The Break')" aria-label="Escuchar consejo: Gestión del dinero"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Gestión del dinero</h3>
+                        <p>Lleva un registro simple de gastos y define un presupuesto mensual para comida, transporte y ocio.</p>
+                    </div>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-image"><img src="https://picsum.photos/600/400?random=26" alt="Salud mental y manejo del estrés">
+                        <button class="tip-play" onclick="playAudio('con6', 'Cuida tu salud mental', 'The Break')" aria-label="Escuchar consejo: Cuida tu salud mental"><i class="fa-solid fa-circle-play"></i></button>
+                    </div>
+                    <div class="tip-content">
+                        <h3>Cuida tu salud mental</h3>
+                        <p>Habla con amigos o profesionales cuando lo necesites, practica respiración y dedica tiempo a hobbies fuera del estudio.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Confesiones section -->
+        <section id="confesiones" class="section">
+            <h2><i class="fa-solid fa-mask"></i> Confesiones reales</h2>
+            <div id="confesiones-list">
+                <article class="conf-card">
+                    <p>"Una vez copié en un examen y me sentí culpable durante meses. Aprendí a pedir ayuda y ahora estudio con un grupo."</p>
+                    <span class="meta">— Anónimo, Facultad de Letras</span>
+                </article>
+                <article class="conf-card">
+                    <p>"Trabajaba noche y día y aplazaba todo: mi cuerpo me obligó a parar. Aprendí a decir no."</p>
+                    <span class="meta">— Laura</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Enviar Historia section -->
+        <section id="enviar" class="section">
+            <h2><i class="fa-solid fa-paper-plane"></i> Enviar tu historia</h2>
+            <form id="story-form" class="story-form" onsubmit="submitStory(event)">
+                <label for="name">Nombre (opcional)</label>
+                <input id="name" name="name" type="text" placeholder="Tu nombre o anónimo">
+
+                <label for="story">Tu vivencia</label>
+                <textarea id="story" name="story" rows="6" placeholder="Cuenta tu experiencia universitaria..." required></textarea>
+
+                <button class="btn-primary" type="submit">Enviar historia</button>
+            </form>
+            <div id="story-feedback" class="story-feedback" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <div class="sticky-player" id="player">
+        <div class="track-info">
+            <div class="track-art">
+                <i class="fa-solid fa-music"></i>
+            </div>
+                <div class="track-text">
+                    <h4 id="track-title">Selecciona un audio...</h4>
+                    <span id="track-artist">The Break</span>
+                </div>
+        </div>
+        <div class="player-controls">
+            <button class="ctrl-btn"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="ctrl-btn play-pause-btn" id="main-play-btn">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button class="ctrl-btn"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player" preload="metadata"></audio>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="logo.png" alt="The Break" class="footer-logo">
+                <p>Podcast y relatos estudiantiles: consejos, experiencias y comunidad.</p>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Suscríbete</h4>
+                <p>Recibe nuestros episodios y mejores consejos en tu correo.</p>
+                <form id="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input id="newsletter-email" type="email" placeholder="tu@correo.com" required>
+                    <button class="btn-primary" type="submit">Suscribirme</button>
+                </form>
+                <div id="newsletter-feedback" class="newsletter-feedback" aria-live="polite"></div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="socials">
+                    <a href="https://www.instagram.com/the.break2.0?igsh=b2c3YWlxZWEzcnFz" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@the_break2.0?_r=1&_t=ZS-925UzEURhr7" class="social-tiktok" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://youtube.com/@autonomatv?si=yJU5o3vcAP8F4Dc9" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="muted">© <span id="year"></span> The Break. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
