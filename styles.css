@@ -342,6 +342,53 @@ body {
     .logo-text { font-size: 1rem; }
 }
 
+/* Mejoras responsive para la cabecera y menú en pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.6rem 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    /* Hacer el menú flexible y que pueda envolver líneas sin romper el layout */
+    .menu {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.6rem;
+        margin-top: 0.2rem;
+    }
+
+    .menu a {
+        margin-left: 0; /* quitar separaciones fijas que causan overflow */
+        padding: 0.35rem 0.6rem;
+        font-size: 0.95rem;
+    }
+
+    .menu .btn-primary {
+        margin-left: 0.4rem;
+        margin-top: 0.2rem;
+        padding: 0.45rem 0.9rem;
+    }
+
+    /* Forzar el hero a apilar su contenido verticalmente */
+    .hero {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Evitar que el logo y el texto de la cabecera empujen elementos */
+    .logo { gap: 0.5rem; }
+}
+
 /* Sections visibility */
 .section { display: none; }
 .section.active { display: block; }
