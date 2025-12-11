@@ -369,4 +369,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // attach newsletter form handler if present
     const nf = document.getElementById('newsletter-form');
     if (nf) nf.addEventListener('submit', subscribeNewsletter);
+    // Initialize lazy-loaded YouTube thumbnails
+    initVideoThumbnails();
 });
+
+// Lazy-load YouTube embeds: replace thumbnail with iframe on click
+function initVideoThumbnails() {
+    const items = document.querySelectorAll('.video-item');
+    items.forEach(item => {
+        // store thumb HTML so we can restore on close
+        const thumb = item.innerHTML;
+        item.dataset.thumb = thumb;
+        // play button: open YouTube in new tab as a reliable fallback
+        const playBtn = item.querySelector('.video-play');
+        if (playBtn) {
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = item.dataset.videoId;
+                if (!id) return;
+                // If user holds Alt (option), embed inline; otherwise open YouTube
+                if (e.altKey) {
+                    loadVideo(item);
+                } else {
+                    const url = `https://www.youtube.com/watch?v=${id}`;
+                    window.open(url, '_blank', 'noopener');
+                }
+            });
+        }
+        // also allow clicking the thumbnail itself to embed when Alt is held
+        item.addEventListener('click', (e) => {
+            if (e.altKey) loadVideo(item);
+        });
+    });
+}
+
+function loadVideo(item) {
+    const id = item.dataset.videoId;
+    if (!id) return;
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.src = `https://www.youtube.com/embed/${id}?rel=0&autoplay=1`;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+
+    // create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'video-close';
+    closeBtn.type = 'button';
+    closeBtn.textContent = 'Cerrar';
+    closeBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        // restore thumbnail
+        if (item.dataset.thumb) item.innerHTML = item.dataset.thumb;
+        // re-init listeners for this item
+        initVideoThumbnails();
+    });
+
+    // Clear and insert iframe + close button wrapper
+    item.innerHTML = '';
+    item.appendChild(iframe);
+    item.appendChild(closeBtn);
+}
